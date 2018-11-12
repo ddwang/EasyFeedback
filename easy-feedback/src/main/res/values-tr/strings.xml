@@ -19,5 +19,6 @@
     <string name="info_fedback_legal_and">"ve "</string>
     <string name="info_fedback_legal_log_data">"log verileriniz "</string>
     <string name="info_fedback_legal_will_be_sent">%s geliştiricilerine gönderilecektir</string>
-    
+    <string name="space">\" \"</string>
+
 </resources>
