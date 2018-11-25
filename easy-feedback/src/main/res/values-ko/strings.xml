@@ -43,7 +43,7 @@
 
     <string name="info_fedback_legal_log_data">"로그캣이"</string>
 
-    <string name="info_fedback_legal_will_be_sent">Appic으로 전송됩니다</string>
+    <string name="info_fedback_legal_will_be_sent">Appic으로 전송됩니다 %s</string>
 
     <string name="space">" "</string>
 

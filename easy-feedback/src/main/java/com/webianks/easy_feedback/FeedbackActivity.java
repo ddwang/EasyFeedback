@@ -11,6 +11,7 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
@@ -300,6 +301,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
             Uri uri = Uri.parse("file://" + realPath);
             uris.add(uri);
         }
+
         emailIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
         startActivity(Utils.createEmailOnlyChooserIntent(this, emailIntent, getString(R.string.send_feedback_two)));
     }
@@ -324,7 +326,8 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return Uri.fromFile(file);
+
+        return FileProvider.getUriForFile(getApplicationContext(), getPackageName() + ".fileprovider", file);
     }
 
 
