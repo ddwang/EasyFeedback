@@ -3,4 +3,8 @@
 	<external-cache-path
 		name="/"
 		path="/" />
+
+	<external-path
+		name="/storage/emulated/0"
+		path="." />
 </paths>

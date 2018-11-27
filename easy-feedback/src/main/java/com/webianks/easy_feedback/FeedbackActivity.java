@@ -19,6 +19,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -256,6 +257,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         } else if (requestCode == PICK_IMAGE_REQUEST &&
                 resultCode == RESULT_OK && data != null && data.getData() != null) {
 
+
             realPath = Utils.getPath(this, data.getData());
 
             selectedImageView.setImageBitmap(Utils.decodeSampledBitmap(realPath,
@@ -298,7 +300,10 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         }
 
         if (realPath != null) {
-            Uri uri = Uri.parse("file://" + realPath);
+            File realFile = new File(realPath);
+            Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", realFile);
+            Log.e(getClass().getSimpleName(), "realPath=" + realPath + ", uri=" + uri);
+
             uris.add(uri);
         }
 
